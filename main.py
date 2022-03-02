@@ -1,5 +1,8 @@
+from cgitb import text
+from re import X
+from textwrap import fill
 import tkinter
-from tkinter import messagebox
+from tkinter import RIGHT, TOP, Y, Scrollbar, messagebox
 from tkinter.messagebox import showinfo
 from tkinter import ttk
 
@@ -8,10 +11,15 @@ from click import command
 # FUNCOES
 
 
-def obter():
-    itemSelecionado = tree.selection()[0]
-    valores = tree.item(itemSelecionado, "values")
-    print(valores[0])
+def gerarCronograma():
+    tempo = 0
+    for child in tree.get_children():
+        valor = tree.item(child)["values"]
+        inicio = tempo
+        final = tempo + valor[1]
+        tempo = tempo + valor[1]
+        estudosList.insert('', 'end', text="1", values=(
+            valor[0], valor[1], valor[2], inicio, final))
 
 
 def treeview_sort_column(tv, col, reverse):
@@ -51,22 +59,27 @@ def delComent():
         messagebox.showinfo(
             title="ERRO", message="Selecione um elemento a ser deletado!")
 
+
+def Clear():
+    estudosList.delete(*estudosList.get_children())
 # MAIN FRAME
 
 
 root = tkinter.Tk()
-root.geometry("600x600")
+root.geometry("1000x600")
 root.wm_title("Minha Agenda")
 s = ttk.Style()
 s.theme_use('clam')
 
 # LIST BOX FRAME
+notebookRoot = ttk.Notebook(root)
+notebookRoot.pack()
+
 
 eventsFrame = tkinter.LabelFrame(
-    root)
+    notebookRoot)
 eventsFrame.place(relwidth=1, relheight=0.5)
-
-eventsList = tkinter.Listbox(eventsFrame)
+notebookRoot.add(eventsFrame, text="Trabalhos")
 
 
 tree = ttk.Treeview(eventsFrame)
@@ -82,6 +95,24 @@ tree.configure(show='headings')
 for col in ft_columns:
     tree.heading(col, text=col, command=lambda _col=col:
                  treeview_sort_column(tree, _col, False))
+
+# Frame Estudos
+estudosFrame = tkinter.LabelFrame(
+    notebookRoot)
+estudosFrame.place(relwidth=1, relheight=0.5)
+notebookRoot.add(estudosFrame, text="Estudos")
+
+estudosList = ttk.Treeview(estudosFrame)
+estudosList.grid(sticky='news')
+
+estude_columns = ('Titulo', 'Duracao', 'DeadLine', 'Inicio', 'Fim')
+estudosList.configure(columns=estude_columns)
+
+for heading in estude_columns:
+    estudosList.heading(heading, text=heading)
+
+estudosList.configure(show='headings')
+
 
 # OPCOES DE FRAME
 optionsFrame = tkinter.LabelFrame(root, text="Adicione seu evento")
@@ -112,9 +143,12 @@ btnComent = tkinter.Button(
     inputDeadLineFrame, text="Agendar", command=addComent)
 btnComent.place(relwidth=0.25, relheight=1, relx=0.75)
 
+btnClear = tkinter.Button(
+    inputDurationFrame, text="Limpar", command=Clear)
+btnClear.place(relwidth=0.25, relheight=1, relx=0.75)
 
 btnOrganizar = tkinter.Button(
-    optionsFrame, text="Organizar", command=obter)
+    optionsFrame, text="Organizar", command=gerarCronograma)
 btnOrganizar.place(relwidth=0.4, relheight=0.2, relx=0.55, rely=0.8)
 
 btnDelete = tkinter.Button(optionsFrame, text="Deletar", command=delComent)
