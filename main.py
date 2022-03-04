@@ -1,38 +1,38 @@
-from cgitb import text
-from re import X
-from textwrap import fill
+
 import tkinter
-from tkinter import RIGHT, TOP, Y, Scrollbar, messagebox
+from tkinter import Tk, messagebox
 from tkinter.messagebox import showinfo
 from tkinter import ttk
-
-from click import command
 
 # FUNCOES
 
 
 def gerarCronograma():
     tempo = 0
+    atrasoMaximoTotal = 0
     for child in tree.get_children():
         valor = tree.item(child)["values"]
         inicio = tempo
         final = tempo + valor[1]
         tempo = tempo + valor[1]
+        AtrasoMaximo = final - valor[2]
+        if AtrasoMaximo > atrasoMaximoTotal:
+            atrasoMaximoTotal = AtrasoMaximo
         estudosList.insert('', 'end', text="1", values=(
             valor[0], valor[1], valor[2], inicio, final))
+    messagebox.showinfo(title="Atraso Maximo",
+                        message=f"Seu atraso Máximo é de:{atrasoMaximoTotal}")
 
 
 def treeview_sort_column(tv, col, reverse):
     l = [(tv.set(k, col), k) for k in tv.get_children('')]
-    l.sort(reverse=reverse)
+    l.sort(key=lambda t: int(t[0]), reverse=reverse)
 
-   # rearrange items in sorted positions
     for index, (val, k) in enumerate(l):
         tv.move(k, '', index)
 
-   # reverse sort next time
-    tv.heading(col, text=col, command=lambda _col=col:
-               treeview_sort_column(tv, _col, not reverse))
+    tv.heading(col,
+               command=lambda: treeview_sort_column(tv, col, not reverse))
 
 
 def addComent():
@@ -62,14 +62,16 @@ def delComent():
 
 def Clear():
     estudosList.delete(*estudosList.get_children())
-# MAIN FRAME
 
+
+# MAIN FRAME
 
 root = tkinter.Tk()
 root.geometry("1000x600")
 root.wm_title("Minha Agenda")
+
 s = ttk.Style()
-s.theme_use('clam')
+
 
 # LIST BOX FRAME
 notebookRoot = ttk.Notebook(root)
