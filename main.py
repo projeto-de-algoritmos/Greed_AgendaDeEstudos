@@ -1,13 +1,18 @@
 
+from __future__ import with_statement
+from cmath import e
+from textwrap import fill
 import tkinter
-from tkinter import Tk, messagebox
+from tkinter import PhotoImage, Tk, messagebox
 from tkinter.messagebox import showinfo
 from tkinter import ttk
+from ttkthemes import ThemedStyle
 
 # FUNCOES
 
 
 def gerarCronograma():
+    Clear()
     tempo = 0
     atrasoMaximoTotal = 0
     for child in tree.get_children():
@@ -68,9 +73,11 @@ def Clear():
 
 root = tkinter.Tk()
 root.geometry("1000x600")
+root.wm_resizable(width=False, height=False)
 root.wm_title("Minha Agenda")
-
-s = ttk.Style()
+root.wm_resizable(width=False, height=False)
+img = PhotoImage(file='calculadora.png')
+root.tk.call('wm', 'iconphoto', root._w, img)
 
 
 # LIST BOX FRAME
@@ -90,8 +97,10 @@ tree.grid(sticky='news')
 ft_columns = ('Titulo', 'Duracao', 'DeadLine')
 tree.configure(columns=ft_columns)
 
+
 for heading in ft_columns:
     tree.heading(heading, text=heading)
+
 
 tree.configure(show='headings')
 for col in ft_columns:
@@ -116,20 +125,26 @@ for heading in estude_columns:
 estudosList.configure(show='headings')
 
 
-# OPCOES DE FRAME
-optionsFrame = tkinter.LabelFrame(root, text="Adicione seu evento")
+# INPUTS DE FRAME
+
+optionsFrame = tkinter.LabelFrame(
+    root, text="Adicione seu evento")
 optionsFrame.place(relwidth=1, relheight=0.5, rely=0.5)
 
-inputEventtFrame = tkinter.LabelFrame(optionsFrame, text="Titulo do Evento ")
+
+inputEventtFrame = tkinter.LabelFrame(
+    optionsFrame, text="Titulo do Evento ")
 inputEventtFrame.place(relwidth=1, relheight=0.21, rely=0)
 
 inputEvent = tkinter.Entry(inputEventtFrame)
 inputEvent.place(relwidth=0.75, relheight=1)
 
-inputDurationFrame = tkinter.LabelFrame(optionsFrame, text="Duracao do evento")
+inputDurationFrame = tkinter.LabelFrame(
+    optionsFrame, text="Duracao do evento")
 inputDurationFrame.place(relwidth=1, relheight=0.21, rely=0.22)
 
-inputDuration = tkinter.Entry(inputDurationFrame)
+inputDuration = tkinter.Entry(
+    inputDurationFrame)
 inputDuration.place(relwidth=0.75, relheight=1)
 
 inputDeadLineFrame = tkinter.LabelFrame(
@@ -141,20 +156,22 @@ inputDeadLine.place(relwidth=0.75, relheight=1)
 
 # BOTOES
 
-btnComent = tkinter.Button(
-    inputDeadLineFrame, text="Agendar", command=addComent)
-btnComent.place(relwidth=0.25, relheight=1, relx=0.75)
+style = ThemedStyle(root)
+style.set_theme("adapta")
 
-btnClear = tkinter.Button(
-    inputDurationFrame, text="Limpar", command=Clear)
-btnClear.place(relwidth=0.25, relheight=1, relx=0.75)
+btnComent = tkinter.Button(
+    optionsFrame, text="Agendar", command=addComent, background="#297D80", foreground="white")
+btnComent.place(relwidth=0.25, relheight=0.2, relx=0.05, rely=0.8)
+
 
 btnOrganizar = tkinter.Button(
-    optionsFrame, text="Organizar", command=gerarCronograma)
-btnOrganizar.place(relwidth=0.4, relheight=0.2, relx=0.55, rely=0.8)
+    optionsFrame, text="Organizar", command=gerarCronograma, background="#297D80", foreground="white")
+btnOrganizar.place(relwidth=0.25, relheight=0.2, relx=0.65, rely=0.8)
 
-btnDelete = tkinter.Button(optionsFrame, text="Deletar", command=delComent)
-btnDelete.place(relwidth=0.4, relheight=0.2, relx=0.05, rely=0.8)
+btnDelete = tkinter.Button(
+    optionsFrame, text="Deletar", command=delComent, background="#297D80", foreground="white")
+btnDelete.place(relwidth=0.25, relheight=0.2, relx=0.35, rely=0.8)
+
 
 # START APP
 root.mainloop()
