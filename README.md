@@ -11,8 +11,7 @@
 
 ## Sobre 
 Você precisa organizar seus eventos para conseguir realizar tudo que for proposto, analisando
-sua duração e seu período de deadline. Com a Agenda de Estudos, você poderá registrar seus eventos,
-sua duração e o horário do deadline. Ao registrar todas as atividades, você terá acesso ao atraso máximo
+sua duração e seu período de deadline. Com a Agenda de Estudos, você poderá registrar seus eventos. Ao registrar todas as atividades, você terá acesso ao atraso máximo
 possível, bem como o horário de início e fim da realização dos eventos. Além disso, você poderá
 ordenar os eventos por sua duração ou pelo seu deadline. <br><br>
 Utilizamos o algoritmo ambicioso de Agendamento por Intervalos. Levamos em consideração, que os eventos precisam ser realizados um após o outro.
