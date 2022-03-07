@@ -10,7 +10,11 @@
 | 17/0161897 | Eduarda Servidio |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+Você precisa organizar seus eventos para conseguir realizar tudo que for proposto, analisando
+sua duração e seu período de deadline. Com a Agenda de Estudos, você poderá registrar seus eventos,
+sua duração e o horário do deadline. Ao registrar todas as atividades, você terá acesso ao atraso máximo
+possível, bem como o horário de início e fim da realização dos eventos. Além disso, você poderá
+ordenar os eventos por sua duração ou pelo seu deadline. 
 
 ## Screenshots
 Adicione 3 ou mais screenshots do projeto em funcionamento.
@@ -21,10 +25,9 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 de preferência no VSCode. Ao executar o arquivo .py no VSCode, você terá acesso a agenda.
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+Execute o arquivo .py. Adicione eventos, organize (ordene) por duração ou deadline, e tenha seus
+eventos organizados por início e fim de execução.
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
 
 
 
