@@ -128,7 +128,7 @@ inputEvent = tkinter.Entry(inputEventtFrame)
 inputEvent.place(relwidth=0.75, relheight=1)
 
 inputDurationFrame = tkinter.LabelFrame(
-    optionsFrame, text="Duração do Evento", background="#87CEEB")
+    optionsFrame, text="Duração do Evento (horas)", background="#87CEEB")
 inputDurationFrame.place(relwidth=1.33, relheight=0.21, rely=0.22)
 
 inputDuration = tkinter.Entry(
@@ -136,7 +136,7 @@ inputDuration = tkinter.Entry(
 inputDuration.place(relwidth=0.75, relheight=1)
 
 inputDeadLineFrame = tkinter.LabelFrame(
-    optionsFrame, text="Deadline do Evento", background="#87CEEB")
+    optionsFrame, text="Deadline do Evento (horas)", background="#87CEEB")
 inputDeadLineFrame.place(relwidth=1.33, relheight=0.2, rely=0.45)
 
 inputDeadLine = tkinter.Entry(inputDeadLineFrame)
