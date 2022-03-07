@@ -36,8 +36,8 @@ Figura 5: Eventos ordenados por deadline.
 Figura 6: Aba de Estudos mostrando o início e o fim de cada evento.
 
 ## Instalação 
-**Linguagem**: Python. <br>
-**Pré-requisitos**: ter o Python e o Flask instalados na máquina, abrir e executar os arquivos
+**Linguagem**: Python (Tkinter). <br>
+**Pré-requisitos**: ter o Python instalado na máquina, abrir e executar os arquivos
 de preferência no VSCode. Ao executar o arquivo .py no VSCode, você terá acesso a agenda.
 
 ## Uso 
