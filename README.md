@@ -16,9 +16,9 @@ Descreva os objetivos do seu projeto e como ele funciona.
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: Python. <br>
+**Pré-requisitos**: ter o Python e o Flask instalados na máquina, abrir e executar os arquivos
+de preferência no VSCode. Ao executar o arquivo .py no VSCode, você terá acesso a agenda.
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
