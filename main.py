@@ -9,6 +9,7 @@ from tkinter import ttk
 from tkinter import * 
 from tkinter.ttk import Notebook, Style
 
+# funções
 def gerarCronograma():
     Clear()
     tempo = 0
@@ -62,6 +63,7 @@ def delComent():
 def Clear():
     estudosList.delete(*estudosList.get_children())
 
+# frames
 root = tkinter.Tk()
 root.geometry("1000x600")
 root.wm_resizable(width=False, height=False)
@@ -142,6 +144,7 @@ inputDeadLineFrame.place(relwidth=1.33, relheight=0.2, rely=0.45)
 inputDeadLine = tkinter.Entry(inputDeadLineFrame)
 inputDeadLine.place(relwidth=0.75, relheight=1)
 
+#botões
 btnComent = tkinter.Button(
     optionsFrame, text="Agendar",
                 command=addComent,
