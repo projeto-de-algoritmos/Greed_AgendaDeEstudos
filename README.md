@@ -43,10 +43,10 @@ de preferência no VSCode. Ao executar o arquivo .py no VSCode, você terá aces
 ## Uso 
 -Execute o arquivo .py. <br>
 -Adicione eventos. <br>
--Clique em "Organizar". <br>
--Ordene seus eventos por duração ou deadline na aba "Trabalhos", basta clicar sobre os nomes "Duração" e "Deadline".<br>
--Vá até a aba "Estudos" e tenha seus eventos organizados por início e fim de execução. Caso tenha ordenado seus eventos na aba "Trabalhos", clique novamente em "Organizar", para a ordenação ficar salva também na aba "Estudos". <br>
--É possível deletar eventos, basta seleconar o evento e pressionar "Deletar".
+-Ordene seus eventos por duração ou deadline na aba "Trabalhos", basta clicar sobre os nomes "Duração" e "Deadline". Logo após ordenar, Organize os eventos para saber qual ordenação dá o menor atraso máximo.<br>
+-Vá até a aba "Estudos" e tenha seus eventos organizados por início e fim de execução.<br>
+-Caso sua ordenação não tenha sido salva na aba "Estudos" também, clique em "Organizar" novamente.<br>
+-É possível deletar eventos, basta selecionar o evento na aba "Trabalhos", pressionar "Deletar" e pressionar "Organizar" para atualizar sua agenda.
 
 
 
