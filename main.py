@@ -7,6 +7,7 @@ from tkinter import PhotoImage, Tk, messagebox
 from tkinter.messagebox import showinfo
 from tkinter import ttk
 from tkinter import * 
+from tkinter.ttk import Notebook, Style
 
 def gerarCronograma():
     Clear()
@@ -69,6 +70,10 @@ root.wm_resizable(width=False, height=False)
 img = PhotoImage(file='agenda.png')
 root.tk.call('wm', 'iconphoto', root._w, img)
 
+style = ttk.Style(root)
+style.theme_use("clam")
+style.configure("Treeview.Heading", background="#4169E1", foreground="white") 
+
 notebookRoot = ttk.Notebook(root)
 notebookRoot.pack()
 
@@ -78,6 +83,7 @@ eventsFrame.place(relwidth=1, relheight=0.5)
 notebookRoot.add(eventsFrame, text="Trabalhos")
 
 tree = ttk.Treeview(eventsFrame)
+
 tree.grid(sticky='news')
 
 ft_columns = ('Título', 'Duração', 'DeadLine')
@@ -135,14 +141,14 @@ inputDeadLine.place(relwidth=0.75, relheight=1)
 
 btnComent = tkinter.Button(
     optionsFrame, text="Agendar", command=addComent, background="#4169E1", border="5", foreground="white", font=('Tahoma',14), activebackground="#87CEEB")
-btnComent.place(relwidth=0.25, relheight=0.2, relx=0.08, rely=0.8)
+btnComent.place(relwidth=0.25, relheight=0.15, relx=0.08, rely=0.8)
 
 btnOrganizar = tkinter.Button(
     optionsFrame, text="Organizar", command=gerarCronograma, background="#4169E1", border="5", foreground="white", font=('Tahoma',14), activebackground="#87CEEB")
-btnOrganizar.place(relwidth=0.25, relheight=0.2, relx=0.68, rely=0.8)
+btnOrganizar.place(relwidth=0.25, relheight=0.15, relx=0.68, rely=0.8)
 
 btnDelete = tkinter.Button(
     optionsFrame, text="Deletar", command=delComent, background="#4169E1", border="5", foreground="white", font=('Tahoma',14), activebackground="#87CEEB")
-btnDelete.place(relwidth=0.25, relheight=0.2, relx=0.38, rely=0.8)
+btnDelete.place(relwidth=0.25, relheight=0.15, relx=0.38, rely=0.8)
 
 root.mainloop()
