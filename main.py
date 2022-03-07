@@ -66,24 +66,25 @@ root = tkinter.Tk()
 root.geometry("1000x600")
 root.wm_resizable(width=False, height=False)
 root.wm_title("Minha Agenda")
+root.configure(bg="#87CEEB")
 root.wm_resizable(width=False, height=False)
 img = PhotoImage(file='agenda.png')
 root.tk.call('wm', 'iconphoto', root._w, img)
 
-style = ttk.Style(root)
-style.theme_use("clam")
-style.configure("Treeview.Heading", background="#4169E1", foreground="white") 
-
 notebookRoot = ttk.Notebook(root)
 notebookRoot.pack()
 
+style = ttk.Style(root)
+style.theme_use("clam")
+style.configure("Treeview.Heading", background="#4169E1", foreground="white")
+
 eventsFrame = tkinter.LabelFrame(
-    notebookRoot, background="#87CEEB")
+    notebookRoot,
+    background="#87CEEB")
 eventsFrame.place(relwidth=1, relheight=0.5)
 notebookRoot.add(eventsFrame, text="Trabalhos")
 
 tree = ttk.Treeview(eventsFrame)
-
 tree.grid(sticky='news')
 
 ft_columns = ('Título', 'Duração', 'DeadLine')
@@ -98,7 +99,8 @@ for col in ft_columns:
                  treeview_sort_column(tree, _col, False))
 
 estudosFrame = tkinter.LabelFrame(
-    notebookRoot, background="#87CEEB")
+    notebookRoot,
+    background="#87CEEB")
 estudosFrame.place(relwidth=1, relheight=0.5)
 notebookRoot.add(estudosFrame, text="Estudos")
 
@@ -114,7 +116,8 @@ for heading in estude_columns:
 estudosList.configure(show='headings')
 
 optionsFrame = tkinter.LabelFrame(
-    root, text="Adicione seu evento", background="white")
+    root, text="Adicione seu evento",
+    background="#87CEEB")
 optionsFrame.place(relwidth=1, relheight=0.5, rely=0.5)
 
 inputEventtFrame = tkinter.LabelFrame(
@@ -140,15 +143,33 @@ inputDeadLine = tkinter.Entry(inputDeadLineFrame)
 inputDeadLine.place(relwidth=0.75, relheight=1)
 
 btnComent = tkinter.Button(
-    optionsFrame, text="Agendar", command=addComent, background="#4169E1", border="5", foreground="white", font=('Tahoma',14), activebackground="#87CEEB")
+    optionsFrame, text="Agendar",
+                command=addComent,
+                background="#4169E1",
+                border="5",
+                foreground="white",
+                font=('Tahoma',14),
+                activebackground="#87CEEB")
 btnComent.place(relwidth=0.25, relheight=0.15, relx=0.08, rely=0.8)
 
 btnOrganizar = tkinter.Button(
-    optionsFrame, text="Organizar", command=gerarCronograma, background="#4169E1", border="5", foreground="white", font=('Tahoma',14), activebackground="#87CEEB")
+    optionsFrame, text="Organizar",
+                command=gerarCronograma,
+                background="#4169E1",
+                border="5",
+                foreground="white",
+                font=('Tahoma',14),
+                activebackground="#87CEEB")
 btnOrganizar.place(relwidth=0.25, relheight=0.15, relx=0.68, rely=0.8)
 
 btnDelete = tkinter.Button(
-    optionsFrame, text="Deletar", command=delComent, background="#4169E1", border="5", foreground="white", font=('Tahoma',14), activebackground="#87CEEB")
+    optionsFrame, text="Deletar",
+                command=delComent,
+                background="#4169E1",
+                border="5",
+                foreground="white",
+                font=('Tahoma',14),
+                activebackground="#87CEEB")
 btnDelete.place(relwidth=0.25, relheight=0.15, relx=0.38, rely=0.8)
 
 root.mainloop()
