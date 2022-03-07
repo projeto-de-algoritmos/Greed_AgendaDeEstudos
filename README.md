@@ -14,7 +14,7 @@ Você precisa organizar seus eventos para conseguir realizar tudo que for propos
 sua duração e seu período de deadline. Com a Agenda de Estudos, você poderá registrar seus eventos. Ao registrar todas as atividades, você terá acesso ao atraso máximo
 possível, bem como o horário de início e fim da realização dos eventos. Além disso, você poderá
 ordenar os eventos por sua duração ou pelo seu deadline. <br><br>
-Utilizamos a ideia do algoritmo ambicioso de Agendamento por Intervalos, levando em consideração, que os eventos precisam ser realizados um após o outro. E o agendamento para minimizar o atraso, já que ao ordenar ou por "Duração" ou por "Deadline", conseguimos ter o melhor jeito de agendar todos os eventos com menor atraso.
+Utilizamos a ideia do algoritmo ambicioso de Agendamento para minimizar o atraso, já que ao ordenar ou por "Duração" ou por "Deadline", conseguimos ter o melhor jeito de agendar todos os eventos com menor atraso. Bem como, os eventos são processados um por vez.
 
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/52542729/156961723-3ba7357b-124a-4c4d-8f9d-370ed95ca490.png)
